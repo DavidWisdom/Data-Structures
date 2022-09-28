@@ -17,10 +17,10 @@ namespace DataStructures {
             return len == 0;
         }
         void clear() override {
-
+            
         }
         void push(const T& item) override {
-
+            topLink = new Link<T>(item, topLink);
         }
         T pop() override {
 

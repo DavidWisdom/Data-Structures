@@ -7,7 +7,7 @@
 namespace DataStructures {
     template <typename T>
     class BinNode {
-        
+
     };
 }
 #endif //DATA_STRUCTURES_BINNODE_H
