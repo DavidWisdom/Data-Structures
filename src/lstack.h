@@ -28,10 +28,12 @@ namespace DataStructures {
             }
             len = 0;
         }
+        // 入栈
         void push(const T& item) override {
             topLink = new Link<T>(item, topLink);
             ++len;
         }
+        // 出栈
         T pop() override {
             assert(topLink != nullptr);
             Link<T>* temp = topLink;
@@ -41,6 +43,7 @@ namespace DataStructures {
             --len;
             return item;
         }
+        // 返回栈的顶部元素
         T top() const override {
             assert(topLink != nullptr);
             return topLink->data;
