@@ -10,6 +10,10 @@ namespace DataStructures {
     template <typename T>
     class LStack : public Stack<T> {
     public:
+        LStack() : topLink(nullptr), len(0) {}
+        ~LStack() {
+            clear();
+        }
         int size() const override {
             return len;
         }
@@ -17,15 +21,28 @@ namespace DataStructures {
             return len == 0;
         }
         void clear() override {
-            
+            while (topLink) {
+                Link<T>* temp = topLink;
+                topLink = topLink->next;
+                delete temp;
+            }
+            len = 0;
         }
         void push(const T& item) override {
             topLink = new Link<T>(item, topLink);
+            ++len;
         }
         T pop() override {
-
+            assert(topLink != nullptr);
+            Link<T>* temp = topLink;
+            T item = temp->data;
+            topLink = topLink->next;
+            delete temp;
+            --len;
+            return item;
         }
         T top() const override {
+            assert(topLink != nullptr);
             return topLink->data;
         }
     private:
