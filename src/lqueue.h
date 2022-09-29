@@ -23,16 +23,15 @@ public:
         return len == 0;
     }
     void clear() override {
-        Link<T>* curr = head->next;
-        while (curr) {
-            Link<T>* next = curr->next;
-            delete curr;
-            curr = next;
+        tail = head->next;
+        while (tail) {
+            Link<T>* next = tail->next;
+            delete tail;
+            tail = next;
         }
         tail = head;
         len = 0;
     }
-    // TODO: clear()函数还有待改进
     int size() const override {
         return len;
     }
@@ -57,10 +56,12 @@ public:
         assert(len != 0);
         return head->next->data;
     }
+    // 返回队首元素
     T back() const override {
         assert(len != 0);
         return tail->data;
     }
+    // 返回队尾元素
 };
 }
 #endif //DATA_STRUCTURES_LQUEUE_H

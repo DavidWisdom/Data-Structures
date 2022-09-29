@@ -1,3 +1,7 @@
 # ninja log v5
 3	338	6861384560379490	CMakeFiles/Data_Structures.dir/main.cpp.obj	4aac046732414732
 338	443	6861384561311590	Data_Structures.exe	8e53d464a0ba17fd
+3	201	6861551663634331	CMakeFiles/Data_Structures.dir/src/link.cpp.obj	3f75e91a7245dda3
+22	398	6861551665621615	CMakeFiles/Data_Structures.dir/src/node.cpp.obj	15f53f526d68896f
+13	450	6861551665914197	CMakeFiles/Data_Structures.dir/main.cpp.obj	4aac046732414732
+450	1182	6861551673179566	Data_Structures.exe	2d3e2e4dbea22e1d

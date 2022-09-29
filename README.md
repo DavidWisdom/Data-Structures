@@ -46,15 +46,15 @@ int main() {
 
 LQueue函数说明：
 
-| 函数接口                | 函数功能说明             |
-| ----------------------- | ------------------------ |
-| bool empty() const;     | 判断队列是否为空         |
-| void clear();           | 清空队列                 |
-| int size() const;       | 返回队列中的元素个数     |
-| void enqueue(const T&); | 入队                     |
-| T dequeue();            | 出队                     |
-| T front() const;        | 返回队列中的第一个元素   |
-| T back() const;         | 返回队列中的最后一个元素 |
+| 函数接口                | 函数功能说明         |
+| ----------------------- | -------------------- |
+| bool empty() const;     | 判断队列是否为空     |
+| void clear();           | 清空队列             |
+| int size() const;       | 返回队列中的元素个数 |
+| void enqueue(const T&); | 入队                 |
+| T dequeue();            | 出队                 |
+| T front() const;        | 返回队首元素         |
+| T back() const;         | 返回队尾元素         |
 
 使用示例：
 
