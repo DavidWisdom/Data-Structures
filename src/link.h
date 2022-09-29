@@ -6,14 +6,14 @@
 #define DATA_STRUCTURES_LINK_H
 #include <cassert>
 namespace DataStructures {
-    template <typename T>
-    class Link {
-    private:
-        static Link<T>* freeList;
-    public:
-        T data;
-        Link* next;
-        explicit Link(T item = T(), Link* nextp = nullptr) : data(item), next(nextp) {}
-    };
+template <typename T>
+class Link {
+private:
+    static Link<T>* freeList;
+public:
+    T data;
+    Link* next;
+    explicit Link(T item = T(), Link* nextp = nullptr) : data(item), next(nextp) {}
+};
 }
 #endif //DATA_STRUCTURES_LINK_H
