@@ -14,9 +14,6 @@ namespace DataStructures {
         ~LStack() {
             clear();
         }
-        int size() const override {
-            return len;
-        }
         bool empty() const override {
             return len == 0;
         }
@@ -27,6 +24,9 @@ namespace DataStructures {
                 delete temp;
             }
             len = 0;
+        }
+        int size() const override {
+            return len;
         }
         // 入栈
         void push(const T& item) override {

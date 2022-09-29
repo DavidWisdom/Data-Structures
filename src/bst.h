@@ -44,7 +44,7 @@ namespace DataStructures {
             }
         }
         std::vector<std::vector<int>> levelTraverse() {
-            
+
         }
     private:
         TreeNode<T>* root;
