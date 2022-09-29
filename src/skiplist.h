@@ -7,6 +7,10 @@
 namespace DataStructures {
     template <typename T>
     class SkipList {
+    private:
+        struct SkipListNode {
+            
+        };
     public:
         SkipList() {}
         void insert(const T& item) {
