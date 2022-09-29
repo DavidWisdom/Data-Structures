@@ -116,8 +116,7 @@ BST函数说明
 | std::vector\<T> inorderMorris() const; | Morris中序遍历 |
 | std::vector\<T> postorderMorris() const; | Morris后序遍历 |
 | std::vector\<std::vector\<T>> levelOrderTraversal() const; | 二叉搜索树的层序遍历结果 |
-
-| operator std::vector\<T>(); | |
+| | |
 
 使用示例1：
 
