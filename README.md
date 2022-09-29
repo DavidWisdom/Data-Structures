@@ -42,3 +42,54 @@ int main() {
 }
 ```
 
+### 1.2 完善了LQueue板块
+
+LQueue函数说明：
+
+| 函数接口                | 函数功能说明             |
+| ----------------------- | ------------------------ |
+| bool empty() const;     | 判断队列是否为空         |
+| void clear();           | 清空队列                 |
+| int size() const;       | 返回队列中的元素个数     |
+| void enqueue(const T&); | 入队                     |
+| T dequeue();            | 出队                     |
+| T front() const;        | 返回队列中的第一个元素   |
+| T back() const;         | 返回队列中的最后一个元素 |
+
+使用示例：
+
+```cpp
+#include <iostream>
+#include "src/lqueue.h"
+using namespace std;
+using namespace DataStructures;
+int main() {
+    LQueue<int> q;
+    q.enqueue(1);
+    q.enqueue(2);
+    cout << "The front of the queue is " << q.front() << endl;
+    // The front of the queue is 1
+    q.enqueue(3);
+    q.dequeue();
+    q.dequeue();
+    cout << "The front of the queue is " << q.front() << endl;
+    // The front of the queue is 3
+    cout << "The back of the queue is " << q.back() << endl;
+    // The back of the queue is 3
+    cout << "The size of the queue is " << q.size() << endl;
+    // The size of the queue is 1
+    q.clear();
+    cout << "The size of the queue is " << q.size() << endl;
+    // The size of the queue is 0
+    q.enqueue(4);
+    q.enqueue(5);
+    cout << "The front of the queue is " << q.front() << endl;
+    // The front of the queue is 4
+    cout << "The back of the queue is " << q.back() << endl;
+    // The back of the queue is 5
+    cout << "The size of the queue is " << q.size() << endl;
+    // The size of the queue is 2
+    return 0;
+}
+```
+
