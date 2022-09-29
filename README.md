@@ -106,13 +106,20 @@ BST函数说明
 | int size() const;      | 返回二叉搜索树中的元素个数 |
 | void insert(const T&); | 二叉搜索树的插入操作       |
 | void remove(const T&); | 二叉搜索树的删除操作       |
-| std::vector\<T> preOrder() const; | 二叉搜索树的前序遍历结果 |
-| std::vector\<T> inOrder() const; | 二叉搜索树的中序遍历结果 |
-| std::vector\<T> postOrder() const; | 二叉搜索树的后序遍历结果 |
+| std::vector\<T> preOrder() const; | 前序遍历递归实现           |
+| std::vector\<T> inOrder() const; | 中序遍历递归实现           |
+| std::vector\<T> postOrder() const; | 后序遍历递归实现           |
+| std::vector\<T> preOrderTraversal() const; | 前序遍历非递归实现 |
+| std::vector\<T> inOrderTraversal() const; | 中序遍历非递归实现 |
+| std::vector\<T> postOrderTraversal() const; | 后序遍历非递归实现 |
+| std::vector\<T> preorderMorris() const; | Morris前序遍历 |
+| std::vector\<T> inorderMorris() const; | Morris中序遍历 |
+| std::vector\<T> postorderMorris() const; | Morris后序遍历 |
 | std::vector\<std::vector\<T>> levelOrderTraversal() const; | 二叉搜索树的层序遍历结果 |
-| | |
 
-使用示例：
+| operator std::vector\<T>(); | |
+
+使用示例1：
 
 ```cpp
 #include <iostream>
@@ -147,6 +154,30 @@ int main() {
     }
     // postOrder:2 4 5 3 
     cout << endl;
+    return 0;
+}
+```
+
+使用示例2：
+
+```cpp
+#include <iostream>
+#include "src/bst.h"
+using namespace std;
+using namespace DataStructures;
+int main() {
+    BST<int> bst;
+    for (int i = 10; i >= 0; --i) {
+        bst.insert(i);
+    }
+    for (int i = 0; i <= 10; ++i) {
+        bst.insert(i);
+    }
+    vector<int> res = bst;
+    for (int n: res) {
+        cout << n << " ";
+    }
+    // 10 9 10 8 9 7 8 6 7 5 6 4 5 3 4 2 3 1 2 0 1 0
     return 0;
 }
 ```

@@ -20,33 +20,9 @@ namespace DataStructures {
         };
     public:
         BST() : root(nullptr), len(0) {}
-        explicit BST(const std::vector<T>& nums) {
-            if (!nums.empty()) {
-                root = new TreeNode(nums[0]);
-                int n = nums.size();
-                len = n;
-                for (int i = 1; i < n; ++i) {
-                    auto* newNode = new TreeNode(nums[i]);
-                    TreeNode* rootp = root;
-                    while (rootp) {
-                        if (newNode->data < rootp->data) {
-                            if (rootp->lc == nullptr) {
-                                rootp->lc = newNode;
-                            }
-                            rootp = rootp->lc;
-                        }
-                        else {
-                            if (rootp->rc == nullptr) {
-                                root->rc = newNode;
-                            }
-                            rootp = rootp->rc;
-                        }
-                    }
-                }
-            }
-            else {
-                root = nullptr;
-                len = 0;
+        BST(std::vector<T> nums) : root(nullptr), len(0) {
+            for (int i = 0; i < nums.size(); ++i) {
+                insert(nums[i]);
             }
         }
         ~BST() {
@@ -107,32 +83,15 @@ namespace DataStructures {
             post(root, res);
             return res;
         }
-//        std::vector<T> preorderTraversal() const {
+//        std::vector<T> preOrderTraversal() const {
 //
 //        }
-//        std::vector<T> inorderTraversal() const {
+//        std::vector<T> inOrderTraversal() const {
 //
 //        }
-//        std::vector<T> postorderTraversal() const {
+//        std::vector<T> postOrderTraversal() const {
 //
 //        }
-        explicit operator std::vector<T>() {
-            if (!root) return {};
-            std::vector<T> res;
-            LQueue<TreeNode*> q;
-            q.enqueue(root);
-            while (!q.empty()) {
-                int sz = q.size();
-                for (int i = 1; i <= sz; ++i) {
-                    TreeNode* node = q.front();
-                    q.dequeue();
-                    res.push_back(node->data);
-                    if (node->lc) q.enqueue(node->lc);
-                    if (node->rc) q.enqueue(node->rc);
-                }
-            }
-            return res;
-        }
         std::vector<std::vector<T>> levelOrderTraversal() const {
             if (!root) return {};
             std::vector<std::vector<T>> res;
@@ -152,18 +111,58 @@ namespace DataStructures {
             }
             return res;
         }
-//        std::vector<T> preorderMorris() {
+        std::vector<T> preOrderMorris() const {
+            if (!root) return {};
+            std::vector<T> res;
+            TreeNode* p1 = root;
+            TreeNode* p2 = nullptr;
+            while (p1) {
+                p2 = p1->lc;
+                if (p2) {
+                    while (p2->rc != nullptr && p2->rc != p1) {
+                        p2 = p2->rc;
+                    }
+                    if (p2->rc == nullptr) {
+                        res.push_back(p1->data);
+                        p2->rc = p1;
+                        p1 = p1->lc;
+                        continue;
+                    } else {
+                        p2->rc = nullptr;
+                    }
+                } else {
+                    res.push_back(p1->data);
+                }
+                p1 = p1->rc;
+            }
+            return res;
+        }
+//        std::vector<T> inorderMorris() const {
 //
 //        }
-//        std::vector<T> inorderMorris() {
-//
-//        }
-//        std::vector<T> postorderMorris() {
+//        std::vector<T> postorderMorris() const {
 //
 //        }
         int height() {
             // TODO:
             return 0;
+        }
+        explicit operator std::vector<T>() {
+            if (!root) return {};
+            std::vector<T> res;
+            LQueue<TreeNode*> q;
+            q.enqueue(root);
+            while (!q.empty()) {
+                int sz = q.size();
+                for (int i = 1; i <= sz; ++i) {
+                    TreeNode* node = q.front();
+                    q.dequeue();
+                    res.push_back(node->data);
+                    if (node->lc) q.enqueue(node->lc);
+                    if (node->rc) q.enqueue(node->rc);
+                }
+            }
+            return res;
         }
     private:
         TreeNode* root;
