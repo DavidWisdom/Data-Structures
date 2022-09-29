@@ -57,7 +57,7 @@
 			[
 				1,
 				3,
-				18
+				20
 			]
 		}
 	],
@@ -109,7 +109,9 @@
 				14,
 				15,
 				16,
-				17
+				17,
+				18,
+				19
 			]
 		},
 		{
@@ -118,7 +120,7 @@
 			[
 				1,
 				3,
-				18
+				20
 			]
 		}
 	],
@@ -214,6 +216,16 @@
 		{
 			"backtrace" : 1,
 			"path" : "src/maxheap.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/trie.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/bit.h",
 			"sourceGroupIndex" : 0
 		},
 		{
