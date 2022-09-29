@@ -30,9 +30,9 @@ namespace DataStructures {
                 curr = next;
             }
             tail = head;
-            // TODO:
             len = 0;
         }
+        // TODO: clear()函数还有待改进
         int size() const override {
             return len;
         }

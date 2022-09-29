@@ -62,7 +62,8 @@ namespace DataStructures {
             }
             ++len;
         }
-        void remove(const T& item) {
+        bool remove(const T& item) {
+            return false;
             // TODO:
         }
         std::vector<T> preOrder() const {
@@ -80,15 +81,15 @@ namespace DataStructures {
             post(root, res);
             return res;
         }
-//        std::vector<T> preorderTraversal() const {
-//
-//        }
-//        std::vector<T> inorderTraversal() const {
-//
-//        }
-//        std::vector<T> postorderTraversal() const {
-//
-//        }
+        std::vector<T> preorderTraversal() const {
+
+        }
+        std::vector<T> inorderTraversal() const {
+
+        }
+        std::vector<T> postorderTraversal() const {
+
+        }
         std::vector<std::vector<T>> levelOrderTraversal() const {
             if (!root) return {};
             std::vector<std::vector<T>> res;
@@ -107,6 +108,19 @@ namespace DataStructures {
                 res.push_back(curr);
             }
             return res;
+        }
+        std::vector<T> preorderMorris() {
+
+        }
+        std::vector<T> inorderMorris() {
+
+        }
+        std::vector<T> postorderMorris() {
+
+        }
+        int height() {
+            // TODO:
+            return 0;
         }
     private:
         TreeNode* root;
