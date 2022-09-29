@@ -83,15 +83,15 @@ public:
         post(root, res);
         return res;
     }
-//        std::vector<T> preOrderTraversal() const {
+//    std::vector<T> preOrderTraversal() const {
 //
-//        }
-//        std::vector<T> inOrderTraversal() const {
+//    }
+//    std::vector<T> inOrderTraversal() const {
 //
-//        }
-//        std::vector<T> postOrderTraversal() const {
+//    }
+//    std::vector<T> postOrderTraversal() const {
 //
-//        }
+//    }
     std::vector<std::vector<T>> levelOrderTraversal() const {
         if (!root) return {};
         std::vector<std::vector<T>> res;
@@ -137,12 +137,12 @@ public:
         }
         return res;
     }
-//        std::vector<T> inorderMorris() const {
+//    std::vector<T> inorderMorris() const {
 //
-//        }
-//        std::vector<T> postorderMorris() const {
+//    }
+//    std::vector<T> postorderMorris() const {
 //
-//        }
+//    }
     int height() {
         // TODO:
         return 0;
