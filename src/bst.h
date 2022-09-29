@@ -107,14 +107,31 @@ namespace DataStructures {
             post(root, res);
             return res;
         }
-        std::vector<T> preorderTraversal() const {
-
-        }
-        std::vector<T> inorderTraversal() const {
-
-        }
-        std::vector<T> postorderTraversal() const {
-
+//        std::vector<T> preorderTraversal() const {
+//
+//        }
+//        std::vector<T> inorderTraversal() const {
+//
+//        }
+//        std::vector<T> postorderTraversal() const {
+//
+//        }
+        explicit operator std::vector<T>() {
+            if (!root) return {};
+            std::vector<T> res;
+            LQueue<TreeNode*> q;
+            q.enqueue(root);
+            while (!q.empty()) {
+                int sz = q.size();
+                for (int i = 1; i <= sz; ++i) {
+                    TreeNode* node = q.front();
+                    q.dequeue();
+                    res.push_back(node->data);
+                    if (node->lc) q.enqueue(node->lc);
+                    if (node->rc) q.enqueue(node->rc);
+                }
+            }
+            return res;
         }
         std::vector<std::vector<T>> levelOrderTraversal() const {
             if (!root) return {};
@@ -135,15 +152,15 @@ namespace DataStructures {
             }
             return res;
         }
-        std::vector<T> preorderMorris() {
-
-        }
-        std::vector<T> inorderMorris() {
-
-        }
-        std::vector<T> postorderMorris() {
-
-        }
+//        std::vector<T> preorderMorris() {
+//
+//        }
+//        std::vector<T> inorderMorris() {
+//
+//        }
+//        std::vector<T> postorderMorris() {
+//
+//        }
         int height() {
             // TODO:
             return 0;
