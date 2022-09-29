@@ -8,6 +8,8 @@
 namespace DataStructures {
     template <typename T>
     class Link {
+    private:
+        static Link<T>* freeList;
     public:
         T data;
         Link* next;
