@@ -20,12 +20,21 @@ namespace DataStructures {
         };
     public:
         BST() : root(nullptr), len(0) {}
+        explicit BST(const std::vector<T>& nums) : root(nullptr), len((int)nums.size()) {
+
+        }
         ~BST() {
             clear();
+        }
+        bool empty() const {
+            return len == 0;
         }
         void clear() {
             if (!root) return;
             destroy(root);
+        }
+        int size() const {
+            return len;
         }
         void insert(const T& item) {
             if (root == nullptr) {
@@ -56,17 +65,17 @@ namespace DataStructures {
         void remove(const T& item) {
             // TODO:
         }
-        std::vector<T> preorder() const {
+        std::vector<T> preOrder() const {
             std::vector<T> res;
             pre(root, res);
             return res;
         }
-        std::vector<T> inorder() const {
+        std::vector<T> inOrder() const {
             std::vector<T> res;
             in(root, res);
             return res;
         }
-        std::vector<T> postorder() const {
+        std::vector<T> postOrder() const {
             std::vector<T> res;
             post(root, res);
             return res;
@@ -80,7 +89,7 @@ namespace DataStructures {
 //        std::vector<T> postorderTraversal() const {
 //
 //        }
-        std::vector<std::vector<T>> levelTraversal() const {
+        std::vector<std::vector<T>> levelOrderTraversal() const {
             if (!root) return {};
             std::vector<std::vector<T>> res;
             LQueue<TreeNode*> q;

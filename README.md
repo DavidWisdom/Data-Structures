@@ -97,3 +97,16 @@ int main() {
 
 BST函数说明
 
+| 函数接口               | 函数功能说明               |
+| ---------------------- | -------------------------- |
+| bool empty() const;    | 判断二叉搜索树是否为空     |
+| void clear();          | 清空二叉搜索树             |
+| int size() const;      | 返回二叉搜索树中的元素个数 |
+| void insert(const T&); | 二叉搜索树的插入操作       |
+| void remove(const T&); | 二叉搜索树的删除操作       |
+| std::vector\<T> preOrder() const; | 二叉搜索树的前序遍历结果 |
+| std::vector\<T> inOrder() const; | 二叉搜索树的中序遍历结果 |
+| std::vector\<T> postOrder() const; | 二叉搜索树的后序遍历结果 |
+| std::vector\<std::vector\<T>> levelOrderTraversal() const; | 二叉搜索树的层序遍历结果 |
+| | |
+
