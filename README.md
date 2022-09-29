@@ -105,7 +105,7 @@ BST函数说明
 | void clear();          | 清空二叉搜索树             |
 | int size() const;      | 返回二叉搜索树中的元素个数 |
 | void insert(const T&); | 二叉搜索树的插入操作       |
-| void remove(const T&); | 二叉搜索树的删除操作       |
+| bool remove(const T&); | 二叉搜索树的删除操作，删除失败返回false |
 | std::vector\<T> preOrder() const; | 前序遍历递归实现           |
 | std::vector\<T> inOrder() const; | 中序遍历递归实现           |
 | std::vector\<T> postOrder() const; | 后序遍历递归实现           |
