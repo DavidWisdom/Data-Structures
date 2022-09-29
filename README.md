@@ -112,9 +112,9 @@ BST函数说明
 | std::vector\<T> preOrderTraversal() const; | 前序遍历非递归实现 |
 | std::vector\<T> inOrderTraversal() const; | 中序遍历非递归实现 |
 | std::vector\<T> postOrderTraversal() const; | 后序遍历非递归实现 |
-| std::vector\<T> preorderMorris() const; | Morris前序遍历 |
-| std::vector\<T> inorderMorris() const; | Morris中序遍历 |
-| std::vector\<T> postorderMorris() const; | Morris后序遍历 |
+| std::vector\<T> preOrderMorris() const; | Morris前序遍历 |
+| std::vector\<T> inOrderMorris() const; | Morris中序遍历 |
+| std::vector\<T> postOrderMorris() const; | Morris后序遍历 |
 | std::vector\<std::vector\<T>> levelOrderTraversal() const; | 二叉搜索树的层序遍历结果 |
 | | |
 
