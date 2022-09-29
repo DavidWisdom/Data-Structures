@@ -14,16 +14,15 @@ namespace DataStructures {
         Link<T>* tail;
         int len;
     public:
-        LQueue() : head(new Link<T>), tail(new Link<T>), len(0) {}
+        LQueue() : head(new Link<T>), tail(head), len(0) {}
         ~LQueue() {
             clear();
-            delete head;
         }
         bool empty() const override {
             return len == 0;
         }
         void clear() override {
-            
+            // TODO:
         }
         int size() const override {
             return len;
@@ -36,12 +35,15 @@ namespace DataStructures {
         T dequeue() override {
             assert(len != 0);
             T item = head->next->data;
-
+            Link<T>* temp = head->next;
+            head->next = temp->next;
+            if (tail == temp) tail = head;
+            delete temp;
             --len;
             return item;
         }
         T front() const override {
-            return head->data;
+            return head->next->data;
         }
         T back() const override {
             return tail->data;

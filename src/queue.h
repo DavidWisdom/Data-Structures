@@ -8,7 +8,7 @@ namespace DataStructures {
     template <typename T>
     class Queue {
     private:
-        void operator=(const Queue&) = default;
+        void operator=(const Queue&) {};
         Queue(const Queue&) = default;
     public:
         Queue() = default;
