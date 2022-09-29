@@ -14,7 +14,7 @@ int main() {
     bst.insert(5);
     bst.insert(4);
     bst.insert(3);
-    vector<int> res = bst.inorder();
+    vector<int> res = bst.postorder();
     for (int n: res) {
         cout << n << " ";
     }

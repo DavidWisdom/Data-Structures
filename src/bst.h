@@ -5,34 +5,36 @@
 #ifndef DATA_STRUCTURES_BST_H
 #define DATA_STRUCTURES_BST_H
 #include <vector>
+#include <iostream>
 #include "lqueue.h"
 namespace DataStructures {
     template <typename T>
-    struct TreeNode {
-        T data;
-        TreeNode* lc;
-        TreeNode* rc;
-        TreeNode() : data(T()), lc(nullptr), rc(nullptr) {}
-        explicit TreeNode(T item) : data(item), lc(nullptr), rc(nullptr) {}
-    };
-    template <typename T>
     class BST {
+    private:
+        struct TreeNode {
+            T data;
+            TreeNode* lc;
+            TreeNode* rc;
+            TreeNode() : data(T()), lc(nullptr), rc(nullptr) {}
+            explicit TreeNode(T item) : data(item), lc(nullptr), rc(nullptr) {}
+        };
     public:
         BST() : root(nullptr), len(0) {}
         ~BST() {
-            // TODO:
+            clear();
         }
         void clear() {
-            // TODO:
+            if (!root) return;
+            destroy(root);
         }
         void insert(const T& item) {
             if (root == nullptr) {
-                root = new TreeNode<T>(item);
+                root = new TreeNode(item);
                 ++len;
                 return;
             }
-            auto* newNode = new TreeNode<T>(item);
-            TreeNode<T>* rootp = root;
+            auto* newNode = new TreeNode(item);
+            TreeNode* rootp = root;
             while (rootp) {
                 if (newNode->data < rootp->data) {
                     if (rootp->lc == nullptr) {
@@ -81,13 +83,13 @@ namespace DataStructures {
         std::vector<std::vector<T>> levelTraversal() const {
             if (!root) return {};
             std::vector<std::vector<T>> res;
-            LQueue<TreeNode<T>*> q;
+            LQueue<TreeNode*> q;
             q.enqueue(root);
             while (!q.empty()) {
                 int sz = q.size();
                 std::vector<T> curr;
                 for (int i = 1; i <= sz; ++i) {
-                    TreeNode<T>* node = q.front();
+                    TreeNode* node = q.front();
                     q.dequeue();
                     curr.push_back(node->data);
                     if (node->lc) q.enqueue(node->lc);
@@ -98,25 +100,33 @@ namespace DataStructures {
             return res;
         }
     private:
-        TreeNode<T>* root;
+        TreeNode* root;
         int len;
-        static void pre(TreeNode<T>* rt, std::vector<T>& res) {
+        static void pre(TreeNode* rt, std::vector<T>& res) {
             if (!rt) return;
             res.push_back(rt->data);
             pre(rt->lc, res);
             pre(rt->rc, res);
         }
-        static void in(TreeNode<T>* rt, std::vector<T>& res) {
+        static void in(TreeNode* rt, std::vector<T>& res) {
             if (!rt) return;
             in(rt->lc, res);
             res.push_back(rt->data);
             in(rt->rc, res);
         }
-        static void post(TreeNode<T>* rt, std::vector<T>& res) {
+        static void post(TreeNode* rt, std::vector<T>& res) {
             if (!rt) return;
             post(rt->lc, res);
             post(rt->rc, res);
             res.push_back(rt->data);
+        }
+        static void destroy(TreeNode* rt) {
+            if (rt) {
+                destroy(rt->lc);
+                destroy(rt->rc);
+                delete rt;
+                rt = nullptr;
+            }
         }
     };
 }
