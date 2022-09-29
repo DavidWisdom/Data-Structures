@@ -110,3 +110,42 @@ BST函数说明
 | std::vector\<std::vector\<T>> levelOrderTraversal() const; | 二叉搜索树的层序遍历结果 |
 | | |
 
+使用示例：
+
+```cpp
+#include <iostream>
+#include <vector>
+#include "src/bst.h"
+using namespace std;
+using namespace DataStructures;
+int main() {
+    BST<int> bst;
+    bst.insert(3);
+    bst.insert(2);
+    bst.insert(5);
+    bst.insert(4);
+    vector<int> res = bst.preOrder();
+    cout << "preOrder:";
+    for (auto n : res) {
+        cout << n << " ";
+    }
+    // preOrder:3 2 5 4 
+    cout << endl;
+    res = bst.inOrder();
+    cout << "inOrder:";
+    for (auto n : res) {
+        cout << n << " ";
+    }
+    // inOrder:2 3 4 5 
+    cout << endl;
+    res = bst.postOrder();
+    cout << "postOrder:";
+    for (auto n : res) {
+        cout << n << " ";
+    }
+    // postOrder:2 4 5 3 
+    cout << endl;
+    return 0;
+}
+```
+
