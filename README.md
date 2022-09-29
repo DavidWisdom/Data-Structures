@@ -28,12 +28,16 @@ int main() {
     stk.push(2);
     stk.push(3);
     cout << "The top of stack is " << stk.top() << endl;
+    // The top of stack is 3
     stk.pop();
     cout << "The size of stack is " << stk.size() << endl;
+    // The size of stack is 2
     stk.clear();
     cout << "The size of stack is " << stk.size() << endl;
+    // The size of stack is 0
     stk.push(4);
     cout << "The top of stack is " << stk.top() << endl;
+    // The top of stack is 4
     return 0;
 }
 ```
