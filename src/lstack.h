@@ -35,7 +35,7 @@ namespace DataStructures {
         }
         // 出栈
         T pop() override {
-            assert(topLink != nullptr);
+            assert(len != 0);
             Link<T>* temp = topLink;
             T item = temp->data;
             topLink = topLink->next;
@@ -45,7 +45,7 @@ namespace DataStructures {
         }
         // 返回栈的顶部元素
         T top() const override {
-            assert(topLink != nullptr);
+            assert(len != 0);
             return topLink->data;
         }
     private:
