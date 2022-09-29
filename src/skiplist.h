@@ -9,7 +9,7 @@ namespace DataStructures {
     class SkipList {
     private:
         struct SkipListNode {
-            
+
         };
     public:
         SkipList() {}

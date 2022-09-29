@@ -20,8 +20,34 @@ namespace DataStructures {
         };
     public:
         BST() : root(nullptr), len(0) {}
-        explicit BST(const std::vector<T>& nums) : root(nullptr), len((int)nums.size()) {
-
+        explicit BST(const std::vector<T>& nums) {
+            if (!nums.empty()) {
+                root = new TreeNode(nums[0]);
+                int n = nums.size();
+                len = n;
+                for (int i = 1; i < n; ++i) {
+                    auto* newNode = new TreeNode(nums[i]);
+                    TreeNode* rootp = root;
+                    while (rootp) {
+                        if (newNode->data < rootp->data) {
+                            if (rootp->lc == nullptr) {
+                                rootp->lc = newNode;
+                            }
+                            rootp = rootp->lc;
+                        }
+                        else {
+                            if (rootp->rc == nullptr) {
+                                root->rc = newNode;
+                            }
+                            rootp = rootp->rc;
+                        }
+                    }
+                }
+            }
+            else {
+                root = nullptr;
+                len = 0;
+            }
         }
         ~BST() {
             clear();
