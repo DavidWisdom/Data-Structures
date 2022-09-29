@@ -28,12 +28,11 @@ public:
     int size() const override {
         return len;
     }
-    // 入栈
     void push(const T& item) override {
         topLink = new Link<T>(item, topLink);
         ++len;
     }
-    // 出栈
+    // 入栈
     T pop() override {
         assert(len != 0);
         Link<T>* temp = topLink;
@@ -43,11 +42,12 @@ public:
         --len;
         return item;
     }
-    // 返回栈的顶部元素
+    // 出栈
     T top() const override {
         assert(len != 0);
         return topLink->data;
     }
+    // 返回栈的顶部元素
 private:
     Link<T>* topLink;
     int len;

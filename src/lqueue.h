@@ -41,6 +41,7 @@ public:
         tail = tail->next;
         ++len;
     }
+    // 入队
     T dequeue() override {
         assert(len != 0);
         T item = head->next->data;
@@ -51,6 +52,7 @@ public:
         --len;
         return item;
     }
+    // 出队
     T front() const override {
         assert(len != 0);
         return head->next->data;

@@ -7,6 +7,8 @@
 using namespace std;
 using namespace DataStructures;
 int main() {
+    LQueue<int> q;
+    q.enqueue(2);
 
     return 0;
 }
