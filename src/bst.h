@@ -153,14 +153,11 @@ public:
         LQueue<TreeNode*> q;
         q.enqueue(root);
         while (!q.empty()) {
-            int sz = q.size();
-            for (int i = 1; i <= sz; ++i) {
-                TreeNode* node = q.front();
-                q.dequeue();
-                res.push_back(node->data);
-                if (node->lc) q.enqueue(node->lc);
-                if (node->rc) q.enqueue(node->rc);
-            }
+            TreeNode* node = q.front();
+            q.dequeue();
+            res.push_back(node->data);
+            if (node->lc) q.enqueue(node->lc);
+            if (node->rc) q.enqueue(node->rc);
         }
         return res;
     }

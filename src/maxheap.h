@@ -7,10 +7,10 @@
 #include "heap.h"
 // 大根堆
 namespace DataStructures {
-    template <typename T>
-    class MaxHeap : public Heap<T> {
-    public:
+template <typename T>
+class MaxHeap : public Heap<T> {
+public:
 
-    };
+};
 }
 #endif //DATA_STRUCTURES_MAXHEAP_H
